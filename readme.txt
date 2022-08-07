@@ -1,7 +1,8 @@
 process to run-
 
-1>  run the "app.js" file in terminal with nodemon (make sure to cd to the folder "nodeserver")
-2>  now run live server of "index.html".
+0> npm i
+1> run the "app.js" file in terminal with nodemon
+2> localhost:4000 on chrome(preferrably)
 
 intro- we "npm install socket.io" after"npm init" .
 
