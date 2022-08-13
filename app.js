@@ -5,17 +5,19 @@ const app = express();
 const httpServer = require("http").createServer(app);
 const io = require("socket.io")(httpServer);
 const mongoose = require('mongoose');
-
-app.use('/static', express.static('static')) // For serving static files
-app.use(express.urlencoded())
+const axios =require('axios')
 const params = {}
 
 app.set('view engine', 'html'); //for app.render
 app.engine('html', require('ejs').renderFile); //for app.render
 
+app.use('/static', express.static('static')) // For serving static files
+app.use(express.urlencoded())
+
 app.get('/', (req, res) => {
     res.render(__dirname + '/index.html', params)
 })
+
 // mongoose.connect("mongodb://0.0.0.0:27017/chatdb")
 mongoose
     .connect(process.env.DATABASE,{
@@ -62,7 +64,20 @@ function store(collname, Name, Message, Pos) {
     }
     saveInDB();
 }
+const req = async () => {//TO GET RANDOM NAME FROM API
+    const response = await axios.get('http://names.drycodes.com/10?nameOptions=starwarsFirstNames')
+    // console.log(response.data[1])
+    // tempName=response.data[1]
+    return response.data
+}
+
 io.on('connection', socket => {
+
+    req().then((data)=>{//TO GET RANDOM NAME GENERATED IN PROMPT
+        var proxynameis =data[1]
+        socket.emit('proxyNameGet',proxynameis)
+        })
+    
     socket.on('new-user-joined', name => {
         console.log("New user", io.engine.clientsCount, name)
         users[socket.id] = name;

@@ -68,11 +68,12 @@ const appendsaved =(message,giventime,position)=>{
     smoothscroll.scrollIntoView({behavior: "smooth", block: "start"});
 }
 
-// function addbtn(){
-// form.append('<button class="btn"><i class="fa-solid fa-2x fa-paper-plane"></i></button>')
-// }
-const name =prompt("enter your name");
-socket.emit('new-user-joined', name);
+
+socket.on('proxyNameGet',proxynameis=>{
+    console.log(proxynameis)
+    const name =prompt("enter your name",proxynameis);
+    socket.emit('new-user-joined', name);
+})
 
 socket.on('appenddata',(data)=>{
     data.forEach((item)=>{
