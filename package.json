@@ -5,5 +5,24 @@
     "http": "^0.0.1-security",
     "mongoose": "^6.5.1",
     "socket.io": "^4.5.1"
-  }
+  },
+  "name": "chatapp-project",
+  "description": "process to run-",
+  "version": "1.0.0",
+  "main": "app.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yashwant71/realtime-chat-application.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yashwant71/realtime-chat-application/issues"
+  },
+  "homepage": "https://github.com/yashwant71/realtime-chat-application#readme"
 }
