@@ -1,3 +1,4 @@
+require("dotenv").config()
 const users = {};
 const express = require('express')
 const app = express();
