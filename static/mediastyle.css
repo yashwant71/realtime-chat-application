@@ -1,0 +1,31 @@
+@media screen and (max-width: 700px) {
+
+    /* 700 or less */
+    .backcontainer {
+        height: 83vh;
+    }
+
+    .container {
+        width: 100%;
+    }
+
+    .container img {
+        width: 100%;
+        opacity: 0.3;
+        min-width: 200px;
+    }
+
+    #send-container {
+        width: 95%;
+    }
+
+    .message {
+        max-width: 60vw;
+    }
+
+    .btn i {
+        font-size: 2em;
+    }
+
+
+}
