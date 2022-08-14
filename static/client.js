@@ -25,7 +25,7 @@ function gettime(){
     ss = (ss < 10) ? "0" + ss : ss;
     return curtime = hh+":"+mm+session;
 }
-const append =(message,position)=>{
+const append =(message,position)=>{//TO APPEND MESSAGES IN CLIENT
     const messageElement =document.createElement('div');
     messageElement.innerText=message;
     messageElement.classList.add('message')
@@ -48,7 +48,7 @@ const append =(message,position)=>{
     var smoothscroll =document.getElementById(`${random}`)
     smoothscroll.scrollIntoView({behavior: "smooth", block: "start"});
 }
-const appendsaved =(message,giventime,position)=>{
+const appendsaved =(message,giventime,position)=>{//TO APPEND SAVED MESSAGES FROM DATABASE
     const messageElement =document.createElement('div');
     messageElement.innerText=message;
     messageElement.classList.add('message')
@@ -72,6 +72,10 @@ const appendsaved =(message,giventime,position)=>{
 socket.on('proxyNameGet',proxynameis=>{
     console.log(proxynameis)
     const name =prompt("enter your name",proxynameis);
+
+    const namebox= document.querySelector('.yourName')
+    namebox.innerText=name;
+
     socket.emit('new-user-joined', name);
 })
 
@@ -100,3 +104,55 @@ socket.on('receive',data =>{
 socket.on('left', name =>{
     append(`${name} left the chat`,'right')
 })
+
+//TOGGLE DARK MODE LIGHT MODE
+var backImg =document.getElementById('backImg');
+var toggleMode =document.querySelector('.toggleMode');
+var backcontainer=document.querySelector('.backcontainer')
+var formContainer =document.querySelector('.form-container')
+
+var navbar =document.querySelector('#navbar')
+toggleMode.addEventListener('click',()=>{
+    if(toggleMode.classList.contains('fa-sun')){//add dark mode stuff
+        toggleMode.classList.remove('fa-sun');
+        toggleMode.classList.add('fa-moon');
+        
+        backImg.src ="static/dark_pc.jpg";
+        backImg.style.opacity="1";
+        
+        backcontainer.style.background = "linear-gradient(34deg, rgba(2,82,45,1) 20%, rgb(12 25 50) 50%, rgba(118,31,48,1) 80%)";
+        navbar.style.backgroundColor = 'black';
+        formContainer.style.background='linear-gradient(34deg, rgba(2,82,45,1) 20%, rgb(57 28 49) 80%)';
+    }
+    else{//add light mode stuff
+        toggleMode.classList.remove('fa-moon');
+        toggleMode.classList.add('fa-sun');
+
+        backImg.src ="static/chatbg.jpg";
+        backImg.style.opacity="0.2";
+        
+        backcontainer.style.background = "linear-gradient(to bottom,rgb(0,200,15,1), rgb(0,200,15,0))";
+        navbar.style.backgroundColor = 'rgb(0 200 15)';
+        formContainer.style.background='white';
+    }
+})
+function myFunction(x) {
+    if (x.matches) { // If media query matches
+        toggleMode.addEventListener('click',()=>{
+            if(toggleMode.classList.contains('fa-sun')){//add dark mode stuff
+                backImg.src ="static/chatbg.jpg";
+                backImg.style.opacity="0.2";
+            }
+            else{//add light mode stuff
+                backImg.src ="static/dark_phone.jpg";
+                backImg.style.opacity="1";
+            }
+        })
+    } 
+    else {
+        
+    }
+  }
+  var x = window.matchMedia("(max-width: 420px)") // 420 or less
+  myFunction(x) // Call listener function at run time
+  x.addListener(myFunction)
