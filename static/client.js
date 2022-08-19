@@ -156,3 +156,14 @@ function myFunction(x) {
   var x = window.matchMedia("(max-width: 420px)") // 420 or less
   myFunction(x) // Call listener function at run time
   x.addListener(myFunction)
+
+  //to toggle send button hidden and visible on text
+var btn =document.querySelector('.btn')
+messageInput.addEventListener('keyup',()=>{
+    if(messageInput.value.length==0){
+        btn.style.display="none"
+    }
+    else if(messageInput.value.length!=0){
+        btn.style.display="block"
+    }
+})
