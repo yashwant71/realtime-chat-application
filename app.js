@@ -66,8 +66,6 @@ function store(collname, Name, Message, Pos) {
 }
 const req = async () => {//TO GET RANDOM NAME FROM API
     const response = await axios.get('http://names.drycodes.com/10?nameOptions=starwarsFirstNames')
-    // console.log(response.data[1])
-    // tempName=response.data[1]
     return response.data
 }
 
