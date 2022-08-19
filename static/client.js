@@ -72,9 +72,7 @@ const appendsaved =(message,giventime,position)=>{//TO APPEND SAVED MESSAGES FRO
 socket.on('proxyNameGet',proxynameis=>{
     console.log(proxynameis)
     const name =prompt("enter your name",proxynameis);
-    if(name==null){
-        name =proxynameis;
-    }
+
     const namebox= document.querySelector('.yourName')
     namebox.innerText=name;
 
