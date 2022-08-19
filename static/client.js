@@ -73,9 +73,8 @@ socket.on('proxyNameGet',proxynameis=>{
     console.log(proxynameis)
     const name =prompt("enter your name",proxynameis);
     if(name===null){
-        name =proxynameis;
+        return;
     }
-
     const namebox= document.querySelector('.yourName')
     namebox.innerText=name;
 
