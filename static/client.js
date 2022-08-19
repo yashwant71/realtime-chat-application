@@ -81,7 +81,7 @@ socket.on('proxyNameGet',proxynameis=>{
 
 socket.on('appenddata',(data)=>{
     data.forEach((item)=>{
-        appendsaved(`${item.name} ${item.message}`,item.Date,item.pos)
+        appendsaved(`${item.name} ${item.message}`,item.Date,item.pos)  
     })
 })
 socket.on('user-joined', name =>{

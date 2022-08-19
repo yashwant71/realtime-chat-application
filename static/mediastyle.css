@@ -21,6 +21,9 @@
     }
 }
 @media screen and (max-width: 500px) {
-    
+/* 500 or less */
+.backcontainer{
+    height: 78vh;
+}
 }
 
