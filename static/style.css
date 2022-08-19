@@ -51,6 +51,7 @@ nav{
     align-items: center;
     font-weight: bolder;
     height: 5vh;
+    cursor: pointer;
 }
 
 .backcontainer{
