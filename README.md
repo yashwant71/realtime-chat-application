@@ -4,7 +4,7 @@ https://group-chit-chat-app.herokuapp.com/
 
 features:
 1> data is stored of the chat in database for every client,and once you restart and give your name ,your old chats will be there.
-2>a random_name generator api is used to recommend
+2>a random_name generator api is used to recommend a name to who joins the chat (for anonymity) 
 
 database named: "chatdb"
 collection name: your name
