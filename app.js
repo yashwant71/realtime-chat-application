@@ -98,7 +98,7 @@ io.on('connection', socket => {
                 }
             })
         });
-        console.log("yeh its good")
+        // console.log("yeh its good")
         socket.broadcast.emit('user-joined', name);
         //FOR STORING THE DATA ->
         Object.entries(users).forEach(([prop]) => { //prop is socket.id

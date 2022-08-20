@@ -1,5 +1,5 @@
-// const socket = io('http://localhost:4000');
-const socket = io('https://group-chit-chat-app.herokuapp.com');
+const socket = io('http://localhost:4000');
+// const socket = io('https://group-chit-chat-app.herokuapp.com');
 
 const form =document.getElementById('send-container');
 const messageInput =document.getElementById('messageInp');
@@ -141,7 +141,7 @@ toggleMode.addEventListener('click',()=>{
         toggleMode.classList.add('fa-moon');
         
         backImg.src ="static/dark_pc.jpg";
-        backImg.style.opacity="0.5";
+        backImg.style.opacity="1";
         
         backcontainer.style.background = "linear-gradient(34deg, rgba(2,82,45,1) 20%, rgb(12 25 50) 50%, rgba(118,31,48,1) 80%)";
         navbar.style.backgroundColor = 'black';

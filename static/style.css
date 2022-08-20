@@ -4,7 +4,7 @@
     margin: 0px;
     top: 0px;
     padding: 0px;
-    /* box-sizing: border-box; */
+    box-sizing: border-box;
 }
 nav{
     font-family: 'Kanit', sans-serif;
@@ -75,14 +75,17 @@ nav{
     border-radius: 13px;
 }
 #onlineNamesBox{
+    font-family: 'Kanit', sans-serif;
+    color: white;
     display: none;
     position: absolute;
     top: 15vh;
     background-color: blue;
-    opacity: 1;
     padding-left: 1vh;
     padding-right: 1vh;
+    z-index: 2;
 }
+
 .backcontainer{
     background-image: linear-gradient(to bottom,rgb(0,200,15,1), rgb(0,200,15,0));
     z-index: 0;
