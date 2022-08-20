@@ -84,6 +84,29 @@ socket.on('appenddata',(data)=>{
         appendsaved(`${item.name} ${item.message}`,item.Date,item.pos)  
     })
 })
+var onlineCount =document.querySelector("#onlineCount")
+var onlineNamesBox =document.querySelector("#onlineNamesBox")
+socket.on('onlineUser',(arr)=>{
+    onlineNamesBox.innerHTML='';
+    onlineCount.innerText=arr.length
+
+    arr.forEach((n)=>{
+        var div=document.createElement('div');
+        div.innerText=n;
+        onlineNamesBox.append(div);
+    })
+})
+
+onlineCount.addEventListener('click',()=>{
+    console.log('clicked')
+    if(onlineNamesBox.style.display=='block'){
+        onlineNamesBox.style.display='none'
+    }
+    else{
+        onlineNamesBox.style.display='block'
+    }
+
+})
 socket.on('user-joined', name =>{
 append(`${name} joined the chat`, 'right' );
 })

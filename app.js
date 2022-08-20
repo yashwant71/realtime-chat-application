@@ -27,21 +27,21 @@ mongoose
     .then(()=>{
         console.log("DB CONNECTED")
     });
-function checkcollection(name) {
-    //  mongoose.connection.on('open', (ref)=> {  
-        console.log('ola amigos')
-        mongoose.connection.db.listCollections().toArray(function (err, names) {//GETTING EXISTING COLLECTIONS 'S NAMES
-            console.log("working inside")
-            // return names
-            names.forEach((item)=>{
-                console.log(item.name)
-                // console.log('check function')
-            })
-            // console.log(myCollections[0].name); // [{ name: 'dbname.myCollection' }]
-            // console.log(myCollections)
-        });
-    // })
-}
+// function checkcollection(name) {
+//     //  mongoose.connection.on('open', (ref)=> {  
+//         console.log('ola amigos')
+//         mongoose.connection.db.listCollections().toArray(function (err, names) {//GETTING EXISTING COLLECTIONS 'S NAMES
+//             console.log("working inside")
+//             // return names
+//             names.forEach((item)=>{
+//                 console.log(item.name)
+//                 // console.log('check function')
+//             })
+//             // console.log(myCollections[0].name); // [{ name: 'dbname.myCollection' }]
+//             // console.log(myCollections)
+//         });
+//     // })
+// }
 
 const chatSchema = mongoose.Schema({
     name: String,
@@ -69,19 +69,24 @@ const req = async () => {//TO GET RANDOM NAME FROM API
     return response.data
 }
 
+var Onlineusers =[]
+//SOCKET connections
 io.on('connection', socket => {
-
     req().then((data)=>{//TO GET RANDOM NAME GENERATED IN PROMPT
         var proxynameis =data[1]
         socket.emit('proxyNameGet',proxynameis)
-        })
-    
+    })
     socket.on('new-user-joined', name => {
         console.log("New user", io.engine.clientsCount, name)
-        users[socket.id] = name;
 
+        //for sending online users details
+        Onlineusers.push(name)
+        io.sockets.emit('onlineUser',Onlineusers)
+
+        users[socket.id] = name;
         mongoose.connection.db.listCollections().toArray(function (err, names) {
             names.forEach((item)=>{
+                //if chat exist of that user in database then...
                 if(name===item.name){
                     const chatModel = mongoose.model(`${name}`, chatSchema, `${name}`);
                     const findInDB =async ()=>{
@@ -117,6 +122,11 @@ io.on('connection', socket => {
         });
     });
     socket.on('disconnect', message => {
+        // console.log("users ,user-left", io.engine.clientsCount, users[socket.id])
+        
+        Onlineusers= Onlineusers.filter(e => e !== users[socket.id])
+        io.sockets.emit('onlineUser',Onlineusers)
+
         socket.broadcast.emit('left', users[socket.id]);
         //FOR STORING THE DATA ->
         Object.entries(users).forEach(([prop]) => { //prop is socket.id

@@ -67,7 +67,22 @@ nav{
     height: 5vh;
     cursor: default;
 }
-
+#onlineCount{
+    margin-left: 2vw;
+    background-color: blue;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 13px;
+}
+#onlineNamesBox{
+    display: none;
+    position: absolute;
+    top: 15vh;
+    background-color: blue;
+    opacity: 1;
+    padding-left: 1vh;
+    padding-right: 1vh;
+}
 .backcontainer{
     background-image: linear-gradient(to bottom,rgb(0,200,15,1), rgb(0,200,15,0));
     z-index: 0;
