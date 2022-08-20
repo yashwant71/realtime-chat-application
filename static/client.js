@@ -1,5 +1,5 @@
-// const socket = io('http://localhost:4000');
-const socket = io('https://group-chit-chat-app.herokuapp.com');
+const socket = io('http://localhost:4000');
+// const socket = io('https://group-chit-chat-app.herokuapp.com');
 
 const form =document.getElementById('send-container');
 const messageInput =document.getElementById('messageInp');

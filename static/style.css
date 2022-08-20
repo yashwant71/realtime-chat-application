@@ -120,17 +120,18 @@ nav{
     z-index: 2;
     max-width: 32vw;
     padding: 10px;
-    margin: 20px;
+    margin: 0px 20px 5px 20px;
     background-color: rgb(255 255 255);
-    border-radius: 10px;
-    box-shadow: 2px 3px lightgrey;
-    border: 2px solid rgb(211 211 211);
+    /* box-shadow: 2px 3px lightgrey; */
+    border: 1px solid #00800063;
 }
 .message.right{
+    border-radius: 10px 0px 10px 10px;
     align-self: end;
     background-color: greenyellow;
 }
 .message.left{
+    border-radius: 0px 10px 10px 10px;
     align-self: flex-start;
 }
 .form-container{
