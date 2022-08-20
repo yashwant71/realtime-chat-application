@@ -141,7 +141,7 @@ toggleMode.addEventListener('click',()=>{
         toggleMode.classList.add('fa-moon');
         
         backImg.src ="static/dark_pc.jpg";
-        backImg.style.opacity="1";
+        backImg.style.opacity="0.5";
         
         backcontainer.style.background = "linear-gradient(34deg, rgba(2,82,45,1) 20%, rgb(12 25 50) 50%, rgba(118,31,48,1) 80%)";
         navbar.style.backgroundColor = 'black';
