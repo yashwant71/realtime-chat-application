@@ -109,7 +109,7 @@ nav{
     width: 69%;
     top: 15vh;
     z-index: 1;
-    opacity: 0.4;
+    opacity: 0.2;
 }
 .emptymessage{
     /* height: 80vh; */
@@ -148,7 +148,31 @@ nav{
     /* margin: auto; */
     display: flex; 
     height: inherit;
+}
+#emojiBox{
+    display: flex;
+    height: inherit;
+    width: 100%;
+}
+#emojiLogo{
+    padding: 2px;
+    display: flex;
+    align-items: center;
+    margin-right: 5px;
+    cursor: pointer;
+}
 
+#emojis{
+    /* width: 66vw; */
+    width: 0vw;
+    /* display: flex; */
+    transition: width 0.7s ease-out;
+    /* display: none; */
+    overflow-y: scroll;
+    cursor: pointer;
+}
+.emo{
+    font-size: 28px;
 }
 #send-container input{
     width: 100%;
@@ -159,7 +183,6 @@ nav{
     padding: 0px 3px;
 }
 .btn{
-    
     border: none;
     margin-left: 2px;
     background-color: green;

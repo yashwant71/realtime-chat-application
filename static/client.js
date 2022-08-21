@@ -115,6 +115,7 @@ form.addEventListener('submit' ,(e)=>{
     e.preventDefault(); 
     const message =messageInput.value;
     append(`You: ${message}`,'right');
+    // append(`YOU: ${String.fromCodePoint(message)}`,'right');
     socket.emit('send',message);
     messageInput.value='';
 })
@@ -127,6 +128,7 @@ socket.on('receive',data =>{
 socket.on('left', name =>{
     append(`${name} left the chat`,'right')
 })
+
 
 //TOGGLE DARK MODE LIGHT MODE
 var backImg =document.getElementById('backImg');
@@ -189,4 +191,36 @@ messageInput.addEventListener('keyup',()=>{
     else if(messageInput.value.length!=0){
         btn.style.display="block"
     }
+})
+
+var emojiLogo =document.querySelector('#emojiLogo')
+var emojis =document.querySelector('#emojis')
+
+//toggle emoji button
+emojiLogo.addEventListener('click',()=>{
+    console.log('clicked')
+    if(emojis.style.width=="0vw"){//to make visible
+        emojis.style.width="100vw"
+        messageInput.style.display='none'
+    }
+    
+    else{//to make hidden
+        emojis.style.width="0vw"
+        messageInput.style.display='block'
+    }
+})
+
+//emoji select
+var emo =document.querySelectorAll('.emo')
+emo.forEach(em=>{
+    em.addEventListener('click',(e)=>{
+        console.log(e.target.innerText)
+        var clickedEmoji =e.target.innerText
+        append(`you: ${clickedEmoji}`,'right')
+        
+        emojis.style.width="0vw"
+        messageInput.style.display='block'
+        
+        socket.emit('send',clickedEmoji);
+    })
 })
