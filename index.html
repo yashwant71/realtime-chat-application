@@ -5,7 +5,6 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>let's chat</title>
   <!-- <script defer src="http://localhost:4000/socket.io/socket.io.js"></script> -->
   <script defer src="https://group-chit-chat-app.herokuapp.com/socket.io/socket.io.js"></script>
   <script defer src="static/client.js"></script>
@@ -13,6 +12,7 @@
   <link rel="stylesheet" href="static/style.css" />
   <link rel="stylesheet" href="static/mediastyle.css" />
   <script src="https://kit.fontawesome.com/898a3699ac.js" crossorigin="anonymous"></script>
+  <title>let's chat</title>
 </head>
 
 <body>
@@ -56,26 +56,26 @@
   <div class="form-container">
     <form action="#" id="send-container">
       <div id="emojiBox">
-        <div id="emojiLogo"><i class="fa-regular fa-face-grin fa-2x"></i></div>
+        <div id="emojiLogo"><i class="emojiLogoColor fa-regular fa-face-grin fa-2x"></i></div>
         <div id="emojis">
           <span class="emo">&#128075;</span>
           <span class="emo">&#128077;</span>
           <span class="emo">&#128514;</span>
           <span class="emo">&#128578;</span>
           <span class="emo">&#129300;</span>
-          
+
           <span class="emo">&#128520;</span>
           <span class="emo">&#128545;</span>
           <span class="emo">&#128527;</span>
           <span class="emo">&#128548;</span>
           <span class="emo">&#128580;</span>
-          
+
           <span class="emo">&#128569;</span>
           <span class="emo">&#128588;</span>
           <span class="emo">&#128529;</span>
           <span class="emo">&#128523;</span>
           <span class="emo">&#128519;</span>
-          
+
           <span class="emo">&#128550;</span>
           <span class="emo">&#128557;</span>
           <span class="emo">&#128564;</span>
@@ -85,7 +85,8 @@
           <span class="emo">&#129318;</span>
           <span class="emo">&#129327;</span>
         </div>
-        <input type="text" name="messageInp" id="messageInp" placeholder="type your message" oninput="addbtn()" />
+        <input type="text" name="messageInp" id="messageInp" placeholder="type your message"/>
+        <!-- <input type="image" src="" name="messageInp" id="messageInp" /> -->
         <button class="btn"><i class="fa-solid fa-2x fa-paper-plane"></i></button>
     </form>
   </div>

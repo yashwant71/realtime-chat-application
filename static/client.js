@@ -137,10 +137,15 @@ var backcontainer=document.querySelector('.backcontainer')
 var formContainer =document.querySelector('.form-container')
 
 var navbar =document.querySelector('#navbar')
+var styleElem = document.head.appendChild(document.createElement("style"));
+
 toggleMode.addEventListener('click',()=>{
     if(toggleMode.classList.contains('fa-sun')){//add dark mode stuff
         toggleMode.classList.remove('fa-sun');
         toggleMode.classList.add('fa-moon');
+        
+
+        styleElem.innerHTML = ".emojiLogoColor:before {color: white;}";
         
         backImg.src ="static/dark_pc.jpg";
         backImg.style.opacity="1";
@@ -151,6 +156,8 @@ toggleMode.addEventListener('click',()=>{
     }
     else{//add light mode stuff
         toggleMode.classList.remove('fa-moon');
+
+        styleElem.innerHTML = ".emojiLogoColor:before {color: black;}";
         toggleMode.classList.add('fa-sun');
 
         backImg.src ="static/chatbg.jpg";
@@ -182,7 +189,7 @@ function myFunction(x) {
   myFunction(x) // Call listener function at run time
   x.addListener(myFunction)
 
-  //to toggle send button hidden and visible on text
+//to toggle send button hidden and visible on text
 var btn =document.querySelector('.btn')
 messageInput.addEventListener('keyup',()=>{
     if(messageInput.value.length==0){
@@ -196,7 +203,7 @@ messageInput.addEventListener('keyup',()=>{
 var emojiLogo =document.querySelector('#emojiLogo')
 var emojis =document.querySelector('#emojis')
 
-//toggle emoji button
+//TOGGLE EMOJI BUTTON
 emojiLogo.addEventListener('click',()=>{
     console.log('clicked')
     if(emojis.style.width=="0vw"){//to make visible
@@ -209,8 +216,7 @@ emojiLogo.addEventListener('click',()=>{
         messageInput.style.display='block'
     }
 })
-
-//emoji select
+//EMOJI SEND 
 var emo =document.querySelectorAll('.emo')
 emo.forEach(em=>{
     em.addEventListener('click',(e)=>{
