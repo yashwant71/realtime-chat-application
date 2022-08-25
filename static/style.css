@@ -166,7 +166,7 @@ nav{
     /* width: 66vw; */
     width: 0vw;
     /* display: flex; */
-    transition: width 0.7s ease-out;
+    transition: width 0.3s ease-out;
     /* display: none; */
     overflow-y: scroll;
     cursor: pointer;
