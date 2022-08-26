@@ -182,6 +182,12 @@ nav{
     border: 1px solid rgb(0 0 0);
     padding: 0px 3px;
 }
+#send-container input,textarea{
+    background-color: gray;
+    color: white;
+}
+#send-container input,text{
+}
 .btn{
     border: none;
     margin-left: 2px;
