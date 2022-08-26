@@ -16,7 +16,7 @@ we make get request at random name generator api using axios ,and suggest a name
 ## extra-features
 1) random-name is suggested whenever client run the app ,via a random name generator API.
 2) emoji sharing is added.
-3)shows how many/who clients are currently connected to the application in realtime
+3) shows how many/who clients are currently connected to the application in realtime
 
 ## softwares/languages used
 NODEJS,MongoDB,JavaScript,Css,HTML
